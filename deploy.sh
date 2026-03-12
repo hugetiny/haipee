@@ -11,12 +11,13 @@ echo "✅ Build complete. Output is in ./dist directory."
 
 echo "========================================="
 echo "🌍 Deploying to Vercel..."
-# Deploying dist directory to Vercel
-bunx vercel deploy ./dist --prod --token=$VERCEL_TOKEN --yes
+# Deploying dist directory to Vercel using the project name
+bunx vercel deploy ./dist --prod --token=$VERCEL_TOKEN --yes --name haipee
 
 echo "========================================="
 echo "🌍 Deploying to Cloudflare Pages..."
-bunx wrangler pages deploy dist --project-name=hapi-ai-website --commit-dirty=true
+export CLOUDFLARE_EMAIL=$CLOUDFLARE_EMAIL
+bunx wrangler pages deploy dist --project-name=haipee --commit-dirty=true
 
 echo "========================================="
 echo "ℹ️ EdgeOne & Aliyun ESA Deployment:"

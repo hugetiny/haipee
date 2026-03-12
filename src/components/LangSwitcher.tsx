@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'node_modules/react-i18next';
 
 const langs = [
   { code: 'zh', label: '中文' },
@@ -16,11 +16,10 @@ export default function LangSwitcher() {
         <button
           key={lang.code}
           onClick={() => i18n.changeLanguage(lang.code)}
-          className={`px-3 py-1 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer ${
-            currentLang === lang.code
+          className={`px-3 py-1 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer ${currentLang === lang.code
               ? 'bg-white/15 text-white'
               : 'text-slate-400 hover:text-white'
-          }`}
+            }`}
         >
           {lang.label}
         </button>

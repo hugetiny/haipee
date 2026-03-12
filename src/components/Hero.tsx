@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'node_modules/react-i18next';
 
 export default function Hero() {
   const { t } = useTranslation();
@@ -17,10 +17,10 @@ export default function Hero() {
           className="flex justify-center mb-6"
         >
           <img
-              src="/logo-robot.svg"
-              alt="Hapi AI Robot Logo"
-              style={{ width: 110, height: 'auto', display: 'block' }}
-            />
+            src="/logo-robot.svg"
+            alt="Hapi AI Robot Logo"
+            style={{ width: 110, height: 'auto', display: 'block' }}
+          />
         </motion.div>
 
         {/* App name */}
