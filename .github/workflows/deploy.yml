@@ -1,4 +1,4 @@
-name: Deploy to Multi-Cloud
+name: Deploy to Cloudflare Pages
 
 on:
   push:
@@ -8,6 +8,9 @@ on:
 concurrency:
   group: deploy-${{ github.ref }}
   cancel-in-progress: true
+
+# Note: This workflow only deploys to Cloudflare Pages
+# Vercel and EdgeOne are configured with Git integration and auto-deploy on push
 
 jobs:
   build:
@@ -34,40 +37,6 @@ jobs:
           path: dist
           retention-days: 1
 
-  deploy-vercel:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: dist
-          path: dist
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install Vercel CLI
-        run: npm install -g vercel
-
-      - name: Deploy to Vercel
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-        run: |
-          vercel deploy ./dist \
-            --token=$VERCEL_TOKEN \
-            --org-id=$VERCEL_ORG_ID \
-            --project-id=$VERCEL_PROJECT_ID \
-            --prod \
-            --yes
-
   deploy-cloudflare:
     needs: build
     runs-on: ubuntu-latest
@@ -88,35 +57,3 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy dist --project-name=haipee
 
-  # Note: EdgeOne is configured to auto-deploy via GitHub App integration
-  # This job is optional - only runs if EDGEONE_API_KEY is set
-  deploy-edgeone:
-    needs: build
-    runs-on: ubuntu-latest
-    if: ${{ secrets.EDGEONE_API_KEY != '' }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: dist
-          path: dist
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install EdgeOne CLI
-        run: npm install -g @edgeone/cli
-
-      - name: Deploy to EdgeOne Pages
-        env:
-          EDGEONE_API_KEY: ${{ secrets.EDGEONE_API_KEY }}
-        run: |
-          edgeone pages deploy ./dist \
-            --name "haipee" \
-            --env production \
-            --area global

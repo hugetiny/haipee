@@ -20,7 +20,12 @@
 
 **Project:** hugetinys-projects/haipee
 
-**Deployment Command:**
+**Deployment Method:** Git Integration (Auto-deploy)
+- Vercel is connected via GitHub integration
+- Automatically deploys on push to main
+- No GitHub Actions deployment needed
+
+**Manual Deployment (if needed):**
 ```bash
 npx vercel build --token=$VERCEL_TOKEN --yes --prod
 npx vercel deploy --prebuilt --token=$VERCEL_TOKEN --yes --prod
@@ -87,16 +92,32 @@ Configure GCore DNS with 3 backends:
 
 ---
 
+## Deployment Architecture
+
+| Platform | Method | Trigger |
+|----------|--------|---------|
+| **Vercel** | Git Integration | Auto on push to main |
+| **EdgeOne** | Git Integration | Auto on push to main |
+| **Cloudflare** | GitHub Actions | Auto on push to main |
+
+---
+
 ## Quick Deployment
 
-Deploy to all platforms:
+### Automatic (Recommended)
+Just push to main branch - all platforms will deploy automatically:
 ```bash
-./deploy.sh
+git push origin main
 ```
 
-Deploy to specific platform:
+### Manual Deployment (if needed)
 
 ```bash
+# Deploy to all platforms manually
+./deploy.sh
+
+# Or deploy to specific platform:
+
 # Vercel
 npx vercel build --token=$VERCEL_TOKEN --yes --prod
 npx vercel deploy --prebuilt --token=$VERCEL_TOKEN --yes --prod
@@ -112,18 +133,33 @@ edgeone pages deploy ./dist --name "haipee" --env production --area global
 
 ## Environment Variables
 
-Required in `.env`:
-```bash
-# Vercel
-VERCEL_TOKEN=xxx
+### Local Development (`.env`)
 
-# Cloudflare
+```bash
+# Vercel (for manual deployment)
+VERCEL_TOKEN=xxx
+VERCEL_ORG_ID=xxx
+VERCEL_PROJECT_ID=xxx
+
+# Cloudflare (for manual deployment)
 CLOUDFLARE_API_TOKEN=xxx
+CLOUDFLARE_ACCOUNT_ID=xxx
 
 # Tencent EdgeOne (optional, CLI uses login session)
 # TENCENTCLOUD_SECRET_ID=xxx
 # TENCENTCLOUD_SECRET_KEY=xxx
 ```
+
+### GitHub Secrets (for GitHub Actions)
+
+Only Cloudflare needs GitHub Secrets since Vercel and EdgeOne use Git integration:
+
+| Secret | Platform | Status |
+|--------|----------|--------|
+| `CLOUDFLARE_API_TOKEN` | Cloudflare Pages | **Required** |
+| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare Pages | **Required** |
+
+Vercel and EdgeOne are configured via their respective Git integrations and do not require GitHub Secrets for automatic deployment.
 
 ---
 
