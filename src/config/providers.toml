@@ -1,0 +1,495 @@
+# Haipee AI Provider Configuration
+# 定义所有支持的 AI Provider 及其 API 格式
+# 最后更新：2026-03-13
+
+# ============================================
+# Tier 1 - 国际核心厂商
+# ============================================
+
+[providers.openai]
+id = "openai"
+name = "OpenAI"
+description = "OpenAI API - GPT-4, GPT-3.5 Turbo 等模型"
+base_url = "https://api.openai.com"
+docs_url = "https://platform.openai.com/docs"
+
+# Provider 级别支持的格式
+formats = ["openai"]
+default_format = "openai"
+
+  [[providers.openai.models]]
+  id = "gpt-4o"
+  name = "GPT-4o"
+  description = "多模态旗舰模型"
+  formats = ["openai"]
+  default_format = "openai"
+  supports_streaming = true
+  supports_function_calling = true
+  supports_multimodal = true
+  supports_system_prompt = true
+  context_window = 128000
+  max_output_tokens = 4096
+
+  [[providers.openai.models]]
+  id = "gpt-4-turbo"
+  name = "GPT-4 Turbo"
+  description = "高效能模型"
+  formats = ["openai"]
+  default_format = "openai"
+  supports_streaming = true
+  supports_function_calling = true
+  supports_multimodal = true
+  supports_system_prompt = true
+  context_window = 128000
+  max_output_tokens = 4096
+
+[providers.anthropic]
+id = "anthropic"
+name = "Anthropic"
+description = "Anthropic API - Claude 系列模型"
+base_url = "https://api.anthropic.com"
+docs_url = "https://docs.anthropic.com"
+
+formats = ["anthropic"]
+default_format = "anthropic"
+
+  [[providers.anthropic.models]]
+  id = "claude-3-5-sonnet"
+  name = "Claude 3.5 Sonnet"
+  description = "智能与速度平衡"
+  formats = ["anthropic"]
+  default_format = "anthropic"
+  supports_streaming = true
+  supports_function_calling = true
+  supports_multimodal = true
+  supports_system_prompt = true
+  context_window = 200000
+  max_output_tokens = 8192
+
+  [[providers.anthropic.models]]
+  id = "claude-3-opus"
+  name = "Claude 3 Opus"
+  description = "最强推理能力"
+  formats = ["anthropic"]
+  default_format = "anthropic"
+  supports_streaming = true
+  supports_function_calling = true
+  supports_multimodal = true
+  supports_system_prompt = true
+  context_window = 200000
+  max_output_tokens = 4096
+
+[providers.gemini]
+id = "gemini"
+name = "Google Gemini"
+description = "Google Gemini API"
+base_url = "https://generativelanguage.googleapis.com"
+docs_url = "https://ai.google.dev/docs"
+
+# 支持多种格式
+formats = ["gemini", "openai"]
+default_format = "gemini"
+
+  [[providers.gemini.models]]
+  id = "gemini-2.0-flash"
+  name = "Gemini 2.0 Flash"
+  description = "快速多模态模型"
+  formats = ["gemini", "openai"]
+  default_format = "gemini"
+  supports_streaming = true
+  supports_function_calling = true
+  supports_multimodal = true
+  supports_system_prompt = true
+  context_window = 1048576
+  max_output_tokens = 8192
+
+  [[providers.gemini.models]]
+  id = "gemini-1.5-pro"
+  name = "Gemini 1.5 Pro"
+  description = "专业级模型"
+  formats = ["gemini", "openai"]
+  default_format = "gemini"
+  supports_streaming = true
+  supports_function_calling = true
+  supports_multimodal = true
+  supports_system_prompt = true
+  context_window = 2097152
+  max_output_tokens = 8192
+
+[providers.azure]
+id = "azure"
+name = "Azure OpenAI"
+description = "Microsoft Azure OpenAI Service"
+base_url = "https://{resource}.openai.azure.com"
+docs_url = "https://learn.microsoft.com/azure/ai-services/openai"
+
+formats = ["azure", "openai"]
+default_format = "azure"
+
+  [[providers.azure.models]]
+  id = "gpt-4o"
+  name = "GPT-4o (Azure)"
+  description = "Azure 托管的 GPT-4o"
+  formats = ["azure", "openai"]
+  default_format = "azure"
+  supports_streaming = true
+  supports_function_calling = true
+  supports_multimodal = true
+  supports_system_prompt = true
+  context_window = 128000
+  max_output_tokens = 4096
+
+# ============================================
+# Tier 2 - 国内主要厂商
+# ============================================
+
+[providers.aliyun]
+id = "aliyun"
+name = "阿里云灵积"
+description = "阿里云灵积模型服务 - 通义千问"
+base_url = "https://dashscope.aliyuncs.com"
+docs_url = "https://help.aliyun.com/dashscope"
+
+formats = ["aliyun", "openai"]
+default_format = "aliyun"
+
+  [[providers.aliyun.models]]
+  id = "qwen-max"
+  name = "通义千问 Max"
+  description = "最强性能"
+  formats = ["aliyun", "openai"]
+  default_format = "aliyun"
+  supports_streaming = true
+  supports_function_calling = true
+  supports_multimodal = true
+  supports_system_prompt = true
+  context_window = 32000
+  max_output_tokens = 8192
+
+  [[providers.aliyun.models]]
+  id = "qwen-plus"
+  name = "通义千问 Plus"
+  description = "平衡选择"
+  formats = ["aliyun", "openai"]
+  default_format = "aliyun"
+  supports_streaming = true
+  supports_function_calling = true
+  supports_multimodal = true
+  supports_system_prompt = true
+  context_window = 32000
+  max_output_tokens = 8192
+
+  [[providers.aliyun.models]]
+  id = "qwen-turbo"
+  name = "通义千问 Turbo"
+  description = "快速经济"
+  formats = ["aliyun", "openai"]
+  default_format = "aliyun"
+  supports_streaming = true
+  supports_function_calling = true
+  supports_multimodal = false
+  supports_system_prompt = true
+  context_window = 8000
+  max_output_tokens = 4096
+
+[providers.baidu]
+id = "baidu"
+name = "百度文心"
+description = "百度文心一言 API"
+base_url = "https://aip.baidubce.com"
+docs_url = "https://cloud.baidu.com/doc/WENXINWORKSHOP"
+
+formats = ["baidu", "openai"]
+default_format = "baidu"
+
+  [[providers.baidu.models]]
+  id = "ernie-4.0-turbo-8k"
+  name = "文心 4.0 Turbo"
+  description = "最强理解生成"
+  formats = ["baidu", "openai"]
+  default_format = "baidu"
+  supports_streaming = true
+  supports_function_calling = true
+  supports_multimodal = false
+  supports_system_prompt = true
+  context_window = 8192
+  max_output_tokens = 4096
+
+  [[providers.baidu.models]]
+  id = "ernie-3.5-8k"
+  name = "文心 3.5"
+  description = "均衡性能"
+  formats = ["baidu", "openai"]
+  default_format = "baidu"
+  supports_streaming = true
+  supports_function_calling = true
+  supports_multimodal = false
+  supports_system_prompt = true
+  context_window = 8192
+  max_output_tokens = 4096
+
+[providers.bytedance]
+id = "bytedance"
+name = "字节跳动"
+description = "豆包大模型 API"
+base_url = "https://ark.cn-beijing.volces.com"
+docs_url = "https://www.volcengine.com/docs/doubao"
+
+formats = ["bytedance", "openai"]
+default_format = "bytedance"
+
+  [[providers.bytedance.models]]
+  id = "doubao-pro-128k"
+  name = "豆包 Pro 128K"
+  description = "专业版长上下文"
+  formats = ["bytedance", "openai"]
+  default_format = "bytedance"
+  supports_streaming = true
+  supports_function_calling = true
+  supports_multimodal = false
+  supports_system_prompt = true
+  context_window = 128000
+  max_output_tokens = 4096
+
+[providers.zhipu]
+id = "zhipu"
+name = "智谱 AI"
+description = "智谱 ChatGLM API"
+base_url = "https://open.bigmodel.cn"
+docs_url = "https://open.bigmodel.cn/dev/api"
+
+formats = ["openai"]
+default_format = "openai"
+
+  [[providers.zhipu.models]]
+  id = "glm-4-plus"
+  name = "GLM-4 Plus"
+  description = "最强性能"
+  formats = ["openai"]
+  default_format = "openai"
+  supports_streaming = true
+  supports_function_calling = true
+  supports_multimodal = true
+  supports_system_prompt = true
+  context_window = 128000
+  max_output_tokens = 4096
+
+  [[providers.zhipu.models]]
+  id = "glm-4-flash"
+  name = "GLM-4 Flash"
+  description = "免费快速版"
+  formats = ["openai"]
+  default_format = "openai"
+  supports_streaming = true
+  supports_function_calling = true
+  supports_multimodal = false
+  supports_system_prompt = true
+  context_window = 32000
+  max_output_tokens = 4096
+
+# ============================================
+# Tier 3 - 第三方聚合平台
+# ============================================
+
+[providers.opencode]
+id = "opencode"
+name = "OpenCode"
+description = "OpenCode AI 平台 - Zen 系列模型"
+base_url = "https://api.opencode.ai"
+docs_url = "https://docs.opencode.ai"
+
+# 重点：支持 4 种格式
+formats = ["openai", "anthropic", "gemini", "opencode-zen"]
+default_format = "opencode-zen"
+
+  # Zen-4k: 4种格式全支持
+  [[providers.opencode.models]]
+  id = "zen-4k"
+  name = "Zen 4K"
+  description = "4K 上下文，4种格式全支持"
+  formats = ["openai", "anthropic", "gemini", "opencode-zen"]
+  default_format = "opencode-zen"
+  supports_streaming = true
+  supports_function_calling = true
+  supports_multimodal = true
+  supports_system_prompt = true
+  context_window = 4096
+  max_output_tokens = 4096
+
+  # Zen-32k: 仅支持 2 种格式 ⚠️ 特殊案例
+  [[providers.opencode.models]]
+  id = "zen-32k"
+  name = "Zen 32K"
+  description = "32K 上下文，仅支持 OpenAI 和 Anthropic 格式"
+  formats = ["openai", "anthropic"]
+  default_format = "openai"
+  supports_streaming = true
+  supports_function_calling = true
+  supports_multimodal = false
+  supports_system_prompt = true
+  context_window = 32768
+  max_output_tokens = 4096
+
+  # Zen-128k: 4种格式全支持
+  [[providers.opencode.models]]
+  id = "zen-128k"
+  name = "Zen 128K"
+  description = "128K 上下文，4种格式全支持"
+  formats = ["openai", "anthropic", "gemini", "opencode-zen"]
+  default_format = "opencode-zen"
+  supports_streaming = true
+  supports_function_calling = true
+  supports_multimodal = true
+  supports_system_prompt = true
+  context_window = 131072
+  max_output_tokens = 4096
+
+[providers.cloudflare]
+id = "cloudflare"
+name = "Cloudflare Workers AI"
+description = "Cloudflare 边缘 AI 推理"
+base_url = "https://api.cloudflare.com"
+docs_url = "https://developers.cloudflare.com/workers-ai"
+
+formats = ["openai"]
+default_format = "openai"
+
+  [[providers.cloudflare.models]]
+  id = "@cf/meta/llama-3.1-8b-instruct"
+  name = "Llama 3.1 8B"
+  description = "Meta Llama 3.1 8B 指令模型"
+  formats = ["openai"]
+  default_format = "openai"
+  supports_streaming = true
+  supports_function_calling = false
+  supports_multimodal = true
+  supports_system_prompt = true
+  context_window = 8192
+  max_output_tokens = 4096
+
+[providers.nvidia]
+id = "nvidia"
+name = "Nvidia NIM"
+description = "Nvidia Inference Microservices"
+base_url = "https://integrate.api.nvidia.com"
+docs_url = "https://docs.nvidia.com/nim"
+
+formats = ["openai"]
+default_format = "openai"
+
+  [[providers.nvidia.models]]
+  id = "meta/llama-3.1-8b-instruct"
+  name = "Llama 3.1 8B (NIM)"
+  description = "NIM 托管的 Llama 3.1"
+  formats = ["openai"]
+  default_format = "openai"
+  supports_streaming = true
+  supports_function_calling = true
+  supports_multimodal = false
+  supports_system_prompt = true
+  context_window = 8192
+  max_output_tokens = 4096
+
+# ============================================
+# 格式定义（端点、认证、结构）
+# ============================================
+
+[formats.openai]
+id = "openai"
+name = "OpenAI"
+description = "标准 OpenAI API 格式"
+endpoint_path = "/v1/chat/completions"
+auth_type = "bearer"
+auth_header = "Authorization"
+request_structure = "openai_chat"
+response_structure = "openai_chat_response"
+system_prompt_location = "messages[0].role=system"
+
+[formats.anthropic]
+id = "anthropic"
+name = "Anthropic Messages"
+description = "Claude Messages API 格式"
+endpoint_path = "/v1/messages"
+auth_type = "api_key"
+auth_header = "x-api-key"
+request_structure = "anthropic_messages"
+response_structure = "anthropic_content"
+system_prompt_location = "system"
+
+[formats.gemini]
+id = "gemini"
+name = "Google Gemini"
+description = "Gemini API 格式"
+endpoint_path = "/v1beta/models/{model}:generateContent"
+auth_type = "query_param"
+auth_param = "key"
+request_structure = "gemini_content"
+response_structure = "gemini_candidates"
+system_prompt_location = "systemInstruction.parts"
+
+[formats.azure]
+id = "azure"
+name = "Azure OpenAI"
+description = "Azure OpenAI Service 格式"
+endpoint_path = "/openai/deployments/{deployment}/chat/completions"
+auth_type = "api_key"
+auth_header = "api-key"
+request_structure = "openai_chat"
+response_structure = "openai_chat_response"
+system_prompt_location = "messages[0].role=system"
+
+[formats.aliyun]
+id = "aliyun"
+name = "阿里云灵积"
+description = "阿里云灵积原生格式"
+endpoint_path = "/api/v1/services/aigc/text-generation/generation"
+auth_type = "bearer"
+auth_header = "Authorization"
+request_structure = "aliyun_generation"
+response_structure = "aliyun_output"
+system_prompt_location = "input.messages"
+
+[formats.baidu]
+id = "baidu"
+name = "百度文心"
+description = "百度文心原生格式"
+endpoint_path = "/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/completions"
+auth_type = "bearer"
+auth_header = "Authorization"
+request_structure = "baidu_chat"
+response_structure = "baidu_result"
+system_prompt_location = "system"
+
+[formats.bytedance]
+id = "bytedance"
+name = "字节跳动"
+description = "豆包大模型原生格式"
+endpoint_path = "/api/v3/chat/completions"
+auth_type = "bearer"
+auth_header = "Authorization"
+request_structure = "openai_chat"
+response_structure = "openai_chat_response"
+system_prompt_location = "messages[0].role=system"
+
+[formats.opencode-zen]
+id = "opencode-zen"
+name = "OpenCode Zen"
+description = "OpenCode Zen 原生优化格式"
+endpoint_path = "/v2/zen/generate"
+auth_type = "bearer"
+auth_header = "Authorization"
+request_structure = "zen_input"
+response_structure = "zen_output"
+system_prompt_location = "input.messages"
+features = ["zen_mode", "context_compression", "cost_analysis"]
+
+[formats.custom]
+id = "custom"
+name = "自定义"
+description = "自定义 API 格式"
+endpoint_path = "/"
+auth_type = "bearer"
+auth_header = "Authorization"
+request_structure = "custom"
+response_structure = "custom"
+system_prompt_location = "custom"
