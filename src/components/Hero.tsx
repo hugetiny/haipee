@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { useTranslation } from 'node_modules/react-i18next';
+import { useTranslation } from 'react-i18next';
 
 export default function Hero() {
   const { t } = useTranslation();
@@ -18,8 +18,8 @@ export default function Hero() {
         >
           <img
             src="/logo-robot.svg"
-            alt="Hapi AI Robot Logo"
-            style={{ width: 110, height: 'auto', display: 'block' }}
+            alt="Haipee AI Robot Logo"
+            style={{ width: 110, height: 'auto', display: 'block', colorScheme: 'only light' }}
           />
         </motion.div>
 
@@ -30,7 +30,7 @@ export default function Hero() {
           transition={{ delay: 0.1 }}
           className="text-sm font-bold text-violet-400 tracking-[0.3em] uppercase mb-4"
         >
-          Hapi AI
+          Haipee AI
         </motion.p>
 
         {/* Main headline */}

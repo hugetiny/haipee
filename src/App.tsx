@@ -4,7 +4,7 @@ import Hero from './components/Hero';
 import Features from './components/Features';
 import ArchitectureGraph from './components/ArchitectureGraph';
 import LangSwitcher from './components/LangSwitcher';
-import { useTranslation } from 'node_modules/react-i18next';
+import { useTranslation } from 'react-i18next';
 
 function App() {
   const { t } = useTranslation();
