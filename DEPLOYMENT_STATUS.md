@@ -41,7 +41,12 @@ npx vercel deploy --prebuilt --token=$VERCEL_TOKEN --yes --prod
 
 **Project:** haipee
 
-**Deployment Command:**
+**Deployment Method:** Git Integration (Auto-deploy)
+- Cloudflare Pages is connected via GitHub integration
+- Automatically deploys on push to main
+- No GitHub Actions deployment needed
+
+**Manual Deployment (if needed):**
 ```bash
 npx wrangler pages deploy dist --project-name=haipee --commit-dirty=true
 ```
@@ -97,8 +102,10 @@ Configure GCore DNS with 3 backends:
 | Platform | Method | Trigger |
 |----------|--------|---------|
 | **Vercel** | Git Integration | Auto on push to main |
+| **Cloudflare Pages** | Git Integration | Auto on push to main |
 | **EdgeOne** | Git Integration | Auto on push to main |
-| **Cloudflare** | GitHub Actions | Auto on push to main |
+
+All three platforms use native Git integration. No GitHub Actions required.
 
 ---
 
@@ -150,16 +157,9 @@ CLOUDFLARE_ACCOUNT_ID=xxx
 # TENCENTCLOUD_SECRET_KEY=xxx
 ```
 
-### GitHub Secrets (for GitHub Actions)
+### GitHub Secrets
 
-Only Cloudflare needs GitHub Secrets since Vercel and EdgeOne use Git integration:
-
-| Secret | Platform | Status |
-|--------|----------|--------|
-| `CLOUDFLARE_API_TOKEN` | Cloudflare Pages | **Required** |
-| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare Pages | **Required** |
-
-Vercel and EdgeOne are configured via their respective Git integrations and do not require GitHub Secrets for automatic deployment.
+No GitHub Secrets required. All platforms use native Git integration for automatic deployment.
 
 ---
 
