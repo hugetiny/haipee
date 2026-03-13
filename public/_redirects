@@ -1,4 +1,8 @@
 # Cloudflare Pages redirects for SPA routing
-# All routes should serve index.html for client-side routing
+# https://developers.cloudflare.com/pages/configuration/redirects/
 
-/*    /index.html   200
+# Exclude static assets from SPA rewrite
+/assets/* /assets/:splat 200
+
+# All other routes serve index.html for client-side routing
+/* /index.html 200
