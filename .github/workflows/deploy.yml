@@ -88,9 +88,12 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy dist --project-name=haipee
 
+  # Note: EdgeOne is configured to auto-deploy via GitHub App integration
+  # This job is optional - only runs if EDGEONE_API_KEY is set
   deploy-edgeone:
     needs: build
     runs-on: ubuntu-latest
+    if: ${{ secrets.EDGEONE_API_KEY != '' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4

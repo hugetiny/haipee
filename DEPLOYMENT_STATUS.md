@@ -51,7 +51,12 @@ npx wrangler pages deploy dist --project-name=haipee --commit-dirty=true
 
 **Console:** https://console.cloud.tencent.com/edgeone/pages/project/pages-dksyocssqsns
 
-**Deployment Command:**
+**Deployment Method:** GitHub Integration (Auto-deploy)
+- EdgeOne is connected via GitHub App
+- Automatically deploys on push to main
+- No manual workflow deployment needed
+
+**Alternative Manual Deployment:**
 ```bash
 edgeone pages deploy ./dist --name "haipee" --env production --area global
 ```
