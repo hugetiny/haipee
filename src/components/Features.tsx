@@ -32,7 +32,7 @@ export default function Features() {
     <section className="py-24 relative z-10 w-full overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 relative">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-32 bg-purple-500/10 blur-[100px] rounded-full z-0" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-32 bg-emerald-500/10 blur-[100px] rounded-full z-0" />
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -60,9 +60,9 @@ export default function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="glass-panel p-8 rounded-2xl hover:bg-white/[0.05] transition-all duration-300 border border-white/5 hover:border-purple-500/30 group"
+              className="glass-panel p-8 rounded-2xl hover:bg-white/[0.05] transition-all duration-300 border border-white/5 hover:border-emerald-500/30 group"
             >
-              <div className="w-14 h-14 rounded-2xl bg-white/5 text-purple-400 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-purple-500/20 transition-all duration-300">
+              <div className="w-14 h-14 rounded-2xl bg-white/5 text-emerald-400 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all duration-300">
                 {feature.icon}
               </div>
               <h3 className="text-xl font-bold mb-3 text-white">{feature.title}</h3>

@@ -6,7 +6,7 @@ export default function Hero() {
   const { t } = useTranslation();
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center pt-16 pb-10 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center pt-24 sm:pt-28 md:pt-16 pb-10 overflow-hidden">
       <div className="container mx-auto px-6 relative z-10 text-center">
 
         {/* Robot logo with glow */}
@@ -28,7 +28,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-sm font-bold text-violet-400 tracking-[0.3em] uppercase mb-4"
+          className="text-sm font-bold text-emerald-400 tracking-[0.3em] uppercase mb-4"
         >
           Haipee AI
         </motion.p>
@@ -41,7 +41,7 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.15 }}
         >
           <span className="text-white/90">{t('hero_title_1')} </span>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-300 to-fuchsia-300">
+           <span className="text-emerald-400 bg-gradient-to-r from-emerald-400 to-lime-400 bg-clip-text text-transparent" style={{ filter: 'drop-shadow(0 0 15px rgba(16,185,129,0.5))' }}>
             {t('hero_title_2')}
           </span>
         </motion.h1>
