@@ -93,38 +93,104 @@ Haipee 原生支持 **10 种语言**：
 
 ---
 
-## 📱 预览
-
 <p align="center">
-  <img src="https://haipee.ai/screenshot-hero.png" width="800" alt="Haipee AI 界面预览">
+  <strong>Haipee AI — Stay Haipee. 😊</strong>
 </p>
 
 ---
 
-## 🤝 参与贡献
+# Haipee AI — Put AI to Work for You
 
-我们欢迎各种形式的贡献：
+<p align="center">
+  <img src="https://haipee.ai/logo-robot.svg" width="120" alt="Haipee AI Logo">
+</p>
 
-- 🐛 提交 Bug 报告
-- 💡 提出新功能建议
-- 🌐 帮助改进翻译
-- 📖 完善文档
+<p align="center">
+  <strong>More Than Words, Real Action</strong><br>
+  A multi-platform AI assistant that aggregates top models with true freedom and openness
+</p>
 
-请查看 [CONTRIBUTING.md](./CONTRIBUTING.md) 了解详情。
+<p align="center">
+  <a href="https://haipee.ai">🌐 Website</a> •
+  <a href="#key-features">✨ Features</a> •
+  <a href="#why-haipee">🎯 Why Haipee</a> •
+  <a href="#supported-platforms">💻 Platforms</a>
+</p>
 
 ---
 
-## 📄 开源协议
+## ✨ Key Features
 
-本项目采用 [MIT 协议](./LICENSE) 开源。
+### 🤖 Aggregate Top AI Models
+No more vendor lock-in. Freely switch between **Gemini, Claude, OpenAI, DeepSeek** and other world-class models. Use the best tool for the job.
+
+### 💰 Fully Transparent Pricing
+- ❌ No monthly/yearly subscription traps
+- ✅ Pure token-based billing from source providers
+- ✅ Pay for what you use
+- ✅ Promoting free models actively
+
+### 🖥️ Cross-Platform
+Supports **macOS, Windows, Linux, Android, iOS**. One account, all devices synced. AI is always with you.
+
+### 🔄 Flexible Assistant Switching
+Different scenarios need different AI. Writing, coding, translation, analysis — switch to the best assistant anytime.
 
 ---
 
-## 🔗 相关链接
+## 🎯 Why Haipee?
 
-- 🌐 官网: [https://haipee.ai](https://haipee.ai)
-- 🐦 Twitter/X: [@haipeeai](https://twitter.com/haipeeai)
-- 💬 Discord: [加入社区](https://discord.gg/haipee)
+| Traditional AI Apps | Haipee AI |
+|---------------------|-----------|
+| One app per vendor, constantly switching | **One platform, all models** |
+| $20/month whether you use it or not | **Pay-as-you-go, transparent** |
+| Locked into single vendor ecosystem | **Free choice, switch anytime** |
+| Limited features, no customization | **Flexible for any scenario** |
+
+---
+
+## 💻 Supported Platforms
+
+- ✅ macOS (Intel & Apple Silicon)
+- ✅ Windows 10/11
+- ✅ Linux
+- ✅ iOS (iPhone/iPad)
+- ✅ Android
+
+---
+
+## 🌍 Multi-Language Support
+
+Haipee natively supports **10 languages**:
+
+简体中文 • 繁體中文 • English • 日本語 • Français • Deutsch • Español • 한국어 • Русский • Português • Italiano
+
+---
+
+## 🚀 Quick Start
+
+1. Visit [haipee.ai](https://haipee.ai) to download for your platform
+2. Sign up, no credit card required
+3. Choose your preferred AI model
+4. Start chatting!
+
+---
+
+## 🏗️ Architecture Philosophy
+
+```
+┌─────────────────────────────────────┐
+│         Client Layer                │  ← Multi-platform Apps
+│     macOS | Windows | Linux | iOS   │
+├─────────────────────────────────────┤
+│       Interaction Layer             │  ← Flexible assistant switching
+├─────────────────────────────────────┤
+│        Model Access Layer           │  ← Choose your vendor
+│   Gemini | Claude | OpenAI | ...    │
+└─────────────────────────────────────┘
+```
+
+**Lightweight, Transparent, Free** — This is our design philosophy.
 
 ---
 
