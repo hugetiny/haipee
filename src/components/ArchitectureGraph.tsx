@@ -19,7 +19,7 @@ export default function ArchitectureGraph() {
     <section id="architecture" className="py-24 relative z-10 bg-black/40 border-y border-white/5">
       <div className="container mx-auto px-6 max-w-5xl">
         <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-5xl font-black mb-4">{t('arch_heading')}</h2>
+          <h2 className="text-3xl md:text-5xl font-black mb-4 text-white">{t('arch_heading')}</h2>
           <p className="text-slate-400">{t('arch_sub')}</p>
         </div>
 
@@ -42,9 +42,11 @@ export default function ArchitectureGraph() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="px-5 py-2.5 rounded-xl bg-white/[0.03] border border-white/5 text-sm font-medium hover:bg-white/10 hover:border-white/20 transition-all flex items-center gap-2"
+                  className="px-5 py-2.5 rounded-xl border text-sm font-medium transition-all flex items-center gap-2"
+                  style={{ backgroundColor: 'rgba(255,255,255,0.03)', borderColor: 'rgba(255,255,255,0.05)' }}
+                  whileHover={{ backgroundColor: 'rgba(255,255,255,0.1)', borderColor: 'rgba(255,255,255,0.2)' }}
                 >
-                  <span className="text-emerald-400">{c.icon}</span>
+                  <span style={{ color: '#34d399' }}>{c.icon}</span>
                   {c.name}
                 </motion.div>
               ))}
@@ -54,32 +56,34 @@ export default function ArchitectureGraph() {
           {/* Animated Arrow Down */}
           <div className="flex justify-center w-full h-16 relative">
             <motion.div
-              className="w-1 h-full bg-gradient-to-b from-purple-500/0 via-emerald-500 to-purple-500/0 rounded-full blur-[1px]"
+              className="w-1 h-full bg-gradient-to-b rounded-full"
+              style={{ background: 'linear-gradient(to bottom, rgba(168,85,247,0), rgba(16,185,129,1), rgba(168,85,247,0))', filter: 'blur(1px)' }}
               animate={{ y: [-30, 30], opacity: [0, 1, 0] }}
               transition={{ repeat: Infinity, duration: 1.5, ease: 'linear' }}
             />
           </div>
 
           {/* Bot Tier */}
-          <div className="w-full max-w-3xl glass-panel p-8 rounded-3xl border border-emerald-500/30 relative shadow-[0_0_40px_rgba(16,185,129,0.15)] overflow-hidden">
-            <div className="absolute -inset-[1px] bg-gradient-to-r from-emerald-500/30 to-lime-500/30 opacity-30 blur-xl pointer-events-none animate-pulse" />
+          <div className="w-full max-w-3xl glass-panel p-8 rounded-3xl border relative overflow-hidden" style={{ borderColor: 'rgba(16,185,129,0.3)', boxShadow: '0 0 40px rgba(16,185,129,0.15)' }}>
+            <div className="absolute -inset-[1px] pointer-events-none animate-pulse" style={{ background: 'linear-gradient(to right, rgba(16,185,129,0.3), rgba(132,204,22,0.3))', opacity: 0.3, filter: 'blur(12px)' }} />
             <h3 className="text-xs font-bold text-emerald-400 mb-8 uppercase tracking-[0.2em] text-center relative z-10">
               {t('arch_bot_label')}
             </h3>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-6 relative z-10 w-full">
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="w-full sm:w-[60%] px-8 py-6 rounded-2xl bg-gradient-to-br from-emerald-600/30 to-green-600/30 border border-emerald-400/50 text-xl font-black text-white flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(16,185,129,0.4)] backdrop-blur-xl"
+                className="w-full sm:w-[60%] px-8 py-6 rounded-2xl border text-xl font-black text-white flex items-center justify-center gap-3"
+                style={{ background: 'linear-gradient(to bottom right, rgba(5,150,105,0.3), rgba(22,163,74,0.3))', borderColor: 'rgba(52,211,153,0.5)', boxShadow: '0 0 20px rgba(16,185,129,0.4)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)' }}
               >
-                <Bot className="text-emerald-300" size={28} />
+                <Bot style={{ color: '#6ee7b7' }} size={28} />
                 OpenClaw
               </motion.div>
               <div className="w-full sm:w-[40%] flex flex-col gap-3">
-                <div className="px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-sm font-medium text-slate-300 flex items-center justify-center gap-2 w-full">
-                  <Server size={14} className="text-slate-400" />
+                <div className="px-6 py-3 rounded-xl border text-sm font-medium text-slate-300 flex items-center justify-center gap-2 w-full" style={{ backgroundColor: 'rgba(255,255,255,0.05)', borderColor: 'rgba(255,255,255,0.1)' }}>
+                  <Server size={14} style={{ color: '#94a3b8' }} />
                   ZeroClaw (候补)
                 </div>
-                <div className="px-6 py-3 rounded-xl bg-white/5 border-dashed border border-white/20 text-sm font-medium text-slate-500 flex items-center justify-center gap-2 w-full">
+                <div className="px-6 py-3 rounded-xl border border-dashed text-sm font-medium text-slate-500 flex items-center justify-center gap-2 w-full" style={{ backgroundColor: 'rgba(255,255,255,0.05)', borderColor: 'rgba(255,255,255,0.2)' }}>
                   {t('arch_more')}
                 </div>
               </div>
@@ -91,7 +95,8 @@ export default function ArchitectureGraph() {
             {[1.5, 1.8, 1.6].map((dur, i) => (
               <motion.div
                 key={i}
-                className={`w-1 h-full bg-gradient-to-b from-fuchsia-500/0 via-lime-500 to-fuchsia-500/0 rounded-full blur-[1px] ${i > 0 ? 'hidden sm:block' : ''}`}
+                className={`w-1 h-full rounded-full ${i > 0 ? 'hidden sm:block' : ''}`}
+                style={{ background: 'linear-gradient(to bottom, rgba(192,38,211,0), rgba(132,204,22,1), rgba(192,38,211,0))', filter: 'blur(1px)' }}
                 animate={{ y: [-30, 30], opacity: [0, 1, 0] }}
                 transition={{ repeat: Infinity, duration: dur, ease: 'linear', delay: i * 0.3 }}
               />
@@ -111,9 +116,11 @@ export default function ArchitectureGraph() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="px-6 py-3 rounded-xl bg-white/[0.03] border border-white/5 font-semibold hover:bg-white/10 transition-all flex items-center gap-2 hover:border-lime-500/40 hover:shadow-[0_0_15px_rgba(132,204,22,0.25)] text-slate-200"
+                  className="px-6 py-3 rounded-xl border font-semibold transition-all flex items-center gap-2 text-slate-200"
+                  style={{ backgroundColor: 'rgba(255,255,255,0.03)', borderColor: 'rgba(255,255,255,0.05)' }}
+                  whileHover={{ backgroundColor: 'rgba(255,255,255,0.1)', borderColor: 'rgba(132,204,22,0.4)', boxShadow: '0 0 15px rgba(132,204,22,0.25)' }}
                 >
-                  <Network size={16} className="text-lime-400" />
+                  <Network size={16} style={{ color: '#a3e635' }} />
                   {m}
                 </motion.div>
               ))}

@@ -19,7 +19,7 @@ export default function Hero() {
           <img
             src="/logo-robot.svg"
             alt="Haipee AI Robot Logo"
-            style={{ width: 110, height: 'auto', display: 'block', colorScheme: 'only light' }}
+            style={{ width: 110, height: 'auto', display: 'block' }}
           />
         </motion.div>
 
@@ -33,15 +33,25 @@ export default function Hero() {
           Haipee AI
         </motion.p>
 
-        {/* Main headline */}
+        {/* Main headline - Cross-browser compatible */}
         <motion.h1
           className="text-5xl md:text-7xl lg:text-8xl font-black mb-4 tracking-tight leading-tight"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
         >
-          <span className="text-white/90">{t('hero_title_1')} </span>
-           <span className="text-emerald-400 bg-gradient-to-r from-emerald-400 to-lime-400 bg-clip-text text-transparent" style={{ filter: 'drop-shadow(0 0 15px rgba(16,185,129,0.5))' }}>
+          <span className="text-white">{t('hero_title_1')} </span>
+          {/* Gradient text with solid color fallback */}
+          <span
+            className="text-emerald-400"
+            style={{
+              background: 'linear-gradient(90deg, #34d399 0%, #a3e635 100%)',
+              WebkitBackgroundClip: 'text',
+              backgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              textShadow: '0 0 40px rgba(52, 211, 153, 0.5)'
+            }}
+          >
             {t('hero_title_2')}
           </span>
         </motion.h1>
@@ -74,7 +84,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35 }}
         >
-          <button className="flex items-center justify-center gap-2 bg-white/85 text-black px-8 py-4 rounded-full font-bold hover:bg-white/95 hover:scale-105 transition-all w-full sm:w-auto">
+          <button className="flex items-center justify-center gap-2 bg-white text-black px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform w-full sm:w-auto">
             🤖 {t('cta_primary')}
           </button>
           <a
