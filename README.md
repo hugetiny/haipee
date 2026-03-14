@@ -1,7 +1,7 @@
 # Haipee AI — 让 AI 真正为你所用
 
 <p align="center">
-  <img src="https://haipee.ai/logo-robot.svg" width="120" alt="Haipee AI Logo">
+  <img src="public/logo-robot.svg" width="120" alt="Haipee AI Logo">
 </p>
 
 <p align="center">
@@ -102,7 +102,7 @@ Haipee 原生支持 **10 种语言**：
 # Haipee AI — Put AI to Work for You
 
 <p align="center">
-  <img src="https://haipee.ai/logo-robot.svg" width="120" alt="Haipee AI Logo">
+  <img src="public/logo-robot.svg" width="120" alt="Haipee AI Logo">
 </p>
 
 <p align="center">
