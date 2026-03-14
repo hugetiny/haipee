@@ -40,6 +40,43 @@ const resources = {
       footer: '© {{year}} Haipee AI 版权所有。',
     }
   },
+  'zh-TW': {
+    translation: {
+      badge: '歡迎來到 Haipee AI',
+      hero_title_1: '人人都能用',
+      hero_title_2: 'AI 機器人',
+      hero_subtitle: 'Haipee AI，你 Haipee 嗎？',
+      cta_primary: '敬請期待',
+      cta_secondary: '架構揭秘',
+
+      vp_heading: '不只會說，更能行動。',
+      vp_sub: '不用切換十幾個 AI app。它可以幫你賺錢，提高效率，也可以是可靠的夥伴。',
+
+      features_heading: '告別束縛，AI 本應自由',
+      features_sub: '打破生態壟斷，打造輕量、透明、多端通用的 AI 體驗。',
+
+      feat_simplify_title: '費用透明',
+      feat_simplify_desc: '沒有月付年付消費陷阱，完全基於AI源頭廠商的token，用多少買多少，積極推廣免費模型',
+
+      feat_devices_title: '多端支援',
+      feat_devices_desc: '支援電腦、手機全平台，AI 就在你手邊。',
+
+      feat_nolock_title: '自由切換',
+      feat_nolock_desc: '不被單一廠商綁定。自由選擇 Gemini, Claude, OpenAI... 喜歡哪個用哪個。',
+
+      feat_openclaw_title: '多種選擇',
+      feat_openclaw_desc: '可以靈活切換不同的 AI 助手，適應各種場景。',
+
+      arch_heading: '核心架構',
+      arch_sub: '打通全平台，聚合頂尖模型，自由不受限。',
+      arch_client_label: '用戶端層 (Multi-Platform App)',
+      arch_bot_label: '智慧互動層（靈活切換助手）',
+      arch_model_label: '模型接入層（廠商自由選）',
+      arch_more: '...更多',
+
+      footer: '© {{year}} Haipee AI 版權所有。',
+    }
+  },
   en: {
     translation: {
       badge: 'Welcome to Haipee AI',
@@ -228,7 +265,6 @@ const resources = {
       arch_model_label: '모델 액세스 계층 (업체 자유 선택)',
       arch_more: '...더 보기',
       footer: '© {{year}} Haipee AI. 모든 권리 보유.',
-      Korea: true,
     }
   },
   ru: {

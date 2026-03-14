@@ -1,7 +1,8 @@
 import { useTranslation } from 'react-i18next';
 
 const langs = [
-  { code: 'zh', label: '中文' },
+  { code: 'zh', label: '简体中文' },
+  { code: 'zh-TW', label: '繁體中文' },
   { code: 'en', label: 'English' },
   { code: 'ja', label: '日本語' },
   { code: 'ko', label: '한국어' },
