@@ -1,4 +1,5 @@
 import './i18n';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import AnimatedBackground from './components/AnimatedBackground';
 import Hero from './components/Hero';
 import Features from './components/Features';
@@ -19,6 +20,7 @@ function App() {
       <footer className="py-8 text-center text-emerald-600/70 text-sm border-t border-white/5 relative z-10 glass-panel">
         <p>{t('footer', { year: new Date().getFullYear() })}</p>
       </footer>
+      <SpeedInsights />
     </main>
   );
 }
