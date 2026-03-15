@@ -6,7 +6,7 @@ export default function Hero() {
   const { t } = useTranslation();
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center pt-24 sm:pt-28 md:pt-16 pb-10 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center pt-32 sm:pt-36 md:pt-24 pb-10 overflow-hidden">
       <div className="container mx-auto px-6 relative z-10 text-center">
 
         {/* Robot logo with glow */}
