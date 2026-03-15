@@ -85,7 +85,7 @@ export default function Hero() {
           transition={{ delay: 0.35 }}
         >
           <button className="flex items-center justify-center gap-2 bg-white text-black px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform w-full sm:w-auto">
-            🤖 {t('cta_primary')}
+            {t('cta_primary')}
           </button>
           <a
             href="#architecture"

@@ -19,7 +19,7 @@ const langs = [
 
 export default function LangSwitcher() {
   const { i18n } = useTranslation();
-  const currentLang = i18n.language?.split('-')[0] || 'zh';
+  const currentLang = i18n.language || 'zh';
 
   return (
     <div className="fixed top-4 right-4 z-50 flex flex-wrap justify-center items-center gap-1 glass-panel rounded-2xl md:rounded-full px-2 py-1.5 border border-white/10 max-w-[90vw] md:max-w-none">
